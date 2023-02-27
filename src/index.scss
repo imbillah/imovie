@@ -10,6 +10,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --black: black;
+  --gradient: linear-gradient(98.37deg, #00b4ee 0.99%, #007ed7 100%);
 }
 
 * {
@@ -17,7 +20,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  background-color: var(--black);
+}
 ::-webkit-scrollbar {
   display: none;
 }

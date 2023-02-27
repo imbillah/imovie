@@ -5,14 +5,18 @@ import { getApiConfig } from "./store/homeSlice";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, Explore, SearchResults, NotFound, MovieDetails } from "./pages";
 import { Header, Footer } from "./components";
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     fetchMovieData();
   }, []);
   const fetchMovieData = () => {
-    fetchData("/trending/movie/week").then((res) => {
-      dispatch(getApiConfig(res));
+    fetchData("/configuration").then((res) => {
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+      };
+      dispatch(getApiConfig(url));
     });
   };
   return (

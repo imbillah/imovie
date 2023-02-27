@@ -9,7 +9,7 @@ export const fetchData = async (url) => {
     const { data } = await axios.get(
       `${baseUrl}${url}?api_key=${TMDB_API_KEY}`
     );
-    return data.results;
+    return data;
   } catch (error) {
     console.log(error.message);
   }
