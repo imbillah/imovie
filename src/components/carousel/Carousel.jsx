@@ -46,7 +46,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
           <div className="carouselItems" ref={carouselContainer}>
             {data?.map((item) => {
               const posterUrl = item.poster_path
-                ? urls.backdrop + item.poster_path
+                ? urls.poster + item.poster_path
                 : PosterFallback;
 
               return (
