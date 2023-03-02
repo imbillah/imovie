@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { fetchData } from "./utils/fetchApi";
-import { useSelector, useDispatch } from "react-redux";
-import { getApiConfig } from "./store/homeSlice";
+import { useDispatch } from "react-redux";
+import { getApiConfig, getGenres } from "./store/homeSlice";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, Explore, SearchResults, NotFound, MovieDetails } from "./pages";
 import { Header, Footer } from "./components";
@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     fetchMovieData();
+    fetchGenres();
   }, []);
   const fetchMovieData = () => {
     fetchData("/configuration").then((res) => {
@@ -18,6 +19,24 @@ function App() {
       };
       dispatch(getApiConfig(url));
     });
+  };
+  // fetching multiple apis together
+
+  const fetchGenres = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+
+    endPoints.forEach((url) => {
+      promises.push(fetchData(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promises);
+    data.map(({ genres }) => {
+      return genres.map((item) => (allGenres[item.id] = item));
+    });
+
+    dispatch(getGenres(allGenres));
   };
   return (
     <BrowserRouter>

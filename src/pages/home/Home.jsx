@@ -1,11 +1,12 @@
 import React from "react";
 import "./home.scss";
-import Banner from "./banner/Banner";
+import { Banner, Trending } from "./";
 const Home = () => {
   return (
-    <div className="home_page">
+    <main>
       <Banner />
-    </div>
+      <Trending />
+    </main>
   );
 };
 
