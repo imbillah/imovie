@@ -1,5 +1,5 @@
 import React from "react";
-import DetailBanner from "./detailBanner/DetailBanner";
+import { DetailBanner, Cast, Videos, Similar, Recommendation } from "./";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import "./details.scss";
@@ -11,8 +11,11 @@ const MovieDetails = () => {
   );
   return (
     <div>
-      <h2>Movie Details</h2>
       <DetailBanner video={data?.results?.[0]} crew={credits?.crew} />
+      <Cast data={credits?.cast} loading={creditsLoading} />
+      <Videos data={data} loading={loading} />
+      <Similar mediaType={mediaType} id={id} />
+      <Recommendation mediaType={mediaType} id={id} />
     </div>
   );
 };
