@@ -45,9 +45,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/media/:id" element={<MovieDetails />} />
+        <Route path="/:mediaType/:id" element={<MovieDetails />} />
         <Route path="/search/:query" element={<SearchResults />} />
-        <Route path="/explore/:type" element={<Explore />} />
+        <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
