@@ -19,9 +19,7 @@ const Banner = () => {
   }, [data]);
   const searchHandler = (e) => {
     e.preventDefault();
-    if (e.key === "Enter" && searchQuery.length > 0) {
-      nevigate(`/search/${searchQuery}`);
-    }
+    nevigate(`/search/${searchQuery}`);
   };
 
   return (
@@ -43,10 +41,9 @@ const Banner = () => {
             <input
               type="text"
               placeholder="Search for movies, tv shows and much more.."
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={searchHandler}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button>Search</button>
+            <button onClick={searchHandler}>Search</button>
           </div>
         </div>
       </Wrapper>
