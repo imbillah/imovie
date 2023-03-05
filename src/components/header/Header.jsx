@@ -14,9 +14,9 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [location]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
