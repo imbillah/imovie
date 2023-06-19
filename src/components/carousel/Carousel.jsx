@@ -37,10 +37,12 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}
+          color="white"
         />
         <BsFillArrowRightCircleFill
           className="carouselRighttNav arrow"
           onClick={() => navigation("right")}
+          color="white"
         />
         {!loading ? (
           <div className="carouselItems" ref={carouselContainer}>

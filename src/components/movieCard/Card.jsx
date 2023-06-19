@@ -25,7 +25,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
           </React.Fragment>
         )}
       </div>
-      <div className="textBlock">
+      <div className="">
         <span className="title">{data.title || data.name}</span>
         <span className="date">
           {dayjs(data.release_date).format("MMM D, YYYY")}
